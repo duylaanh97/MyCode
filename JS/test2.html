@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	#dongho{
+		padding: 20px;
+		margin: 20px;
+		color: blue;
+		font-weight: bold;
+		font-size: 50px;
+	}
+</style>
+<body>
+	<div id="dongho">
+		
+	</div>
+	<script type="text/javascript">
+		var so = 10;
+		function demnguoc() {
+			so--;
+			if (so != 0) {
+				document.getElementById("dongho").innerHTML = so;
+				setTimeout("demnguoc()", 1000);
+			}
+			else {
+				document.getElementById("dongho").innerHTML = "Hết Thời Gian";
+				window.location.href = "http://phamleduy.surge.sh";
+			}
+		}
+		demnguoc();
+	</script>
+</body>
+</html>

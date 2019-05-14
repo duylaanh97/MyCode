@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#ketqua{
+			margin: 20px;
+			padding: 20px;
+			background-color: teal;
+			color: white;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="button">
+		<input type="text" name="" id="soa">
+		<input type="text" name="" id="sob">
+		<input type="button" name="" value="phep cong" onclick="tong()">
+		<input type="button" name="" value="phep tru" onclick="hieu()">
+		<input type="button" name="" value="phep nhan" onclick="tich()">
+		<input type="button" name="" value="phep chia" onclick="chia()">
+	</div>
+	<div id="ketqua"></div>
+	<script type="text/javascript">
+		function tong() {
+			var a = document.getElementById("soa").value;
+			var b = document.getElementById("sob").value;
+			c = parseInt(a) + parseInt(b);
+			document.getElementById("ketqua").innerHTML = a + " + " + b + " = " + c
+		}
+		function hieu() {
+			var a = document.getElementById("soa").value;
+			var b = document.getElementById("sob").value;
+			c = parseInt(a) - parseInt(b);
+			document.getElementById("ketqua").innerHTML = a + " - " + b + " = " + c
+		}
+		function tich() {
+			var a = document.getElementById("soa").value;
+			var b = document.getElementById("sob").value;
+			c = parseInt(a) * parseInt(b);
+			document.getElementById("ketqua").innerHTML = a + " x " + b + " = " + c
+		}
+		function chia() {
+			var a = document.getElementById("soa").value;
+			var b = document.getElementById("sob").value;
+			c = parseInt(a) / parseInt(b);
+			document.getElementById("ketqua").innerHTML = a + " / " + b + " = " + c
+		}
+	</script>
+</body>
+</html>

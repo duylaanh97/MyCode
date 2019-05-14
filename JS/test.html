@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#hide{
+			margin: 20px;
+			padding: 20px;
+			background-color: teal;
+			color: white;
+			display: none;
+		}
+		.button{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="button">
+		<input type="button" name="" value="hide" onclick="an()">
+		<input type="button" name="" value="show" onclick="hien()">
+	</div>
+	
+	<div id="hide">
+		<p>Nội dung sẽ ẩn hoặc hiện ra khi click nút button</p>
+	</div>
+
+	<script type="text/javascript">
+		function hien() {
+			document.getElementById('hide').style.display = "block";
+		}
+		function an() {
+			document.getElementById('hide').style.display = "none";
+		}
+	</script>
+</body>
+</html>
