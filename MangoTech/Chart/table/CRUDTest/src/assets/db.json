@@ -1,0 +1,44 @@
+{
+  "Employee": [
+    {
+      "id": 1,
+      "firstName": "Dương",
+      "lastName": "Nguyễn",
+      "email": "thanglon66@gmail.com",
+      "contact": "0123456789",
+      "address": "262 Vĩnh Tuy"
+    },
+    {
+      "id": 2,
+      "firstName": "Duy",
+      "lastName": "Phạm",
+      "email": "leezy.pz66@gmail.com",
+      "contact": "0968452967",
+      "address": "262 Khương Đình"
+    },
+    {
+      "id": 3,
+      "firstName": "Duy",
+      "lastName": "Phạm",
+      "email": "leezy.pz66@gmail.com",
+      "contact": "0968452967",
+      "address": "262 Khương Đình"
+    },
+    {
+      "id": 4,
+      "firstName": "Duy",
+      "lastName": "Phạm",
+      "email": "leezy.pz66@gmail.com",
+      "contact": "0968452967",
+      "address": "262 Khương Đình"
+    },
+    {
+      "id": 5,
+      "firstName": "Duy",
+      "lastName": "Phạm",
+      "email": "leezy.pz66@gmail.com",
+      "contact": "0968452967",
+      "address": "262 Khương Đình"
+    }
+  ]
+}

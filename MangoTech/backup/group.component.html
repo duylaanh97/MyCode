@@ -1,0 +1,117 @@
+<div class="title">Quản lý Bác Sĩ</div>
+<div class="them">
+    <button class="ui-button-info" style="background-color: #6b6b47; color: white;" pButton type="button" iconPos="left" label="Thêm Bác Sĩ"
+        (click)="them()"></button>
+</div>
+<p-table #dt [columns]="cols" [value]="groups" (onRowSelect)="onRowSelect($event)" selectionMode="single"
+    [(selection)]="selectedgroup" dataKey="stt" autoLayout="true">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+            <th class="thaotac">Thao tác</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+            <td *ngFor="let col of columns"  >
+                {{rowData[col.field]}}
+            </td>
+            <td>
+                <button class="ui-button-warning" style="background-color: #6b6b47; color: white; " pButton type="button" label="Sửa" (click)="sua()"></button>
+                <button class="ui-button-danger" style="background-color: #6b6b47; color: white;" pButton type="button" label="Xóa" (click)="xoa()"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+<div class="thaoTac">
+    <button class="xuatExcel ui-button-success" pButton type="button"  label="All Data"
+        (click)="dt.exportCSV()" style="float:left; background-color: #6b6b47; color: white; ">Xuất ra file Excel</button>
+</div>
+
+
+<!-- Thêm Bác Sĩ -->
+<p-dialog header='Thêm Bác Sĩ' [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true"
+    width="700">
+    <div class="ui-g ui-fluid" *ngIf='group'>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="hoTen">Họ Và Tên*</label>
+            </div>
+            <div class="ui-g-8">
+                <input class="ui-inputtext" placeholder="Họ Và Tên" id="hoTen" [(ngModel)]='group.hoTen' />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="chuyenMon">Chuyên Môn*</label>
+            </div>
+            <div class="ui-g-8">
+                <input  class="ui-inputtext" placeholder="Chuyên Môn" id="chuyenMon" [(ngModel)]='group.chuyenMon' />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="luong">Tiền Lương*</label>
+            </div>
+            <div class="ui-g-8">
+                <input class="ui-inputtext" placeholder="Tiền Lương" id="luong" [(ngModel)]='group.luong' />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="gioiTinh">Giới Tính*</label>
+            </div>
+            <div class="ui-g-8">
+                <select class="ui-dropdown" id="gioiTinh" [(ngModel)]='group.gioiTinh' showClear="false " >
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                </select>
+
+                <!-- <p-dropdown [options]="genders" id="gioiTinh" [(ngModel)]='group.gioiTinh' placeholder="Chọn Giới Tính" optionLabel="label" [showClear]="true"></p-dropdown> -->
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="diaChi">Địa Chỉ*</label>
+            </div>
+            <div class="ui-g-8">
+                <textarea rows="6" cols="30" placeholder="Địa Chỉ" class="ui-inputtextarea" id="diaChi" [(ngModel)]='group.diaChi'></textarea>
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="soDienThoai">Số Điện Thoại*</label>
+            </div>
+            <div class="ui-g-8">
+                <input class="ui-inputtext" placeholder="Số Điện Thoại" id="soDienThoai" [(ngModel)]='group.soDienThoai' />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="email">Email*</label>
+            </div>
+            <div class="ui-g-8">
+                <input class="ui-inputtext" placeholder="Email" id="email" [(ngModel)]='group.email' />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="ghiChu">Ghi Chú*</label>
+            </div>
+            <div class="ui-g-8">
+                <textarea rows="6" cols="30" placeholder="Ghi Chú" class="ui-inputtextarea" id="ghiChu" [(ngModel)]='group.ghiChu'></textarea>
+            </div>
+        </div>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button class="ui-button-success" style="background-color: #6b6b47; color: white; " pButton type="button"  (click)="save()"
+                label="Lưu"></button>
+            <button class="ui-button-warning" style="background-color: #6b6b47; color: white; " pButton type="button"  (click)="delete()"
+                label="Xóa"></button>
+        </div>
+    </p-footer>
+</p-dialog>

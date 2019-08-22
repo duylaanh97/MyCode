@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TestCode</title>
+</head>
+<body>
+	<form name="MyForm">
+		Name: <input type="text" onkeyup="ajaxFunction" name="username">
+		Time: <input type="text" name="time">
+	</form>
+	<script type="text/javascript">
+		function ajaxFunction() {
+			var xmlHttp;
+			try{
+				xmlHttp=new XMLHttpRequest();
+			}
+			catch(e){
+				try{
+					xmlHttp= new ActiveXObject("Msxm12.XMLHTTP");
+				}
+				catch(e){
+					try{
+						xmlHttp= new ActiveXObject("Microsoft.XMLHTTP");
+					}
+					catch(e){
+						alert("Your brower does not support AJAX!");
+						return false;
+					}
+				}
+			}
+			xmlHttp.onreadystatechange = function(){
+				if (xmlHttp.readyState == 4) {
+					document.myForm.time.value = xmlHttp.responseText;
+				}
+			}
+			xmlHttp.open("GET","time.asp",true);
+			xmlHttp.send(null);
+		}
+		<% 
+		response.expires = -1
+		response.write(time)
+		%>
+	</script>
+
+</body>
+</html>
