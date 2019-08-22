@@ -1,0 +1,9 @@
+.search-input, .search-box {
+  width: 100%;
+}
+.add-button-box {
+  padding-top: 2.5em;
+}
+.diaglog-action-button {
+  margin: 2px;
+}

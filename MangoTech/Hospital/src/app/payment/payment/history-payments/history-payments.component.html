@@ -1,0 +1,59 @@
+<div class="ui-g">
+  <div class="ui-g-12" style="text-align: center">
+    <h1>lịch sử khám chữa </h1>
+  </div>
+</div>
+<div class="ui-g-12">
+  <p-table #dt [columns]="cols1" [value]="payments1" [responsive]="true">
+    <ng-template pTemplate="caption">
+      Lịch sử khám chữa
+    </ng-template>
+    <ng-template pTemplate="header" let-colmns>
+      <tr>
+        <th>
+          
+        </th>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<p-dialog header='Lịch sử khám chữa' [(visible)]="displayDialogls" [responsive]="true" showEffect="fade" [modal]="true"
+  width="1000">
+  <div class="ui-g ui-fluid" *ngIf='payment'>
+    <div class="ui-g-12">
+      <div class="ui-g-4">
+        <label for="ghiChu">Ghi Chú*</label>
+      </div>
+      <div class="ui-g-8">
+        <textarea rows="6" cols="30" placeholder="Ghi Chú" class="ui-inputtextarea" id="ghiChu"
+          [(ngModel)]='group.ghiChu'></textarea>
+      </div>
+    </div>
+    <p-table #dt [columns]="cols2" [value]="payments" (onRowSelect)="onRowSelect($event)" selectionMode="single"
+      [(selection)]="selectedpayment" dataKey="stt" autoLayout="true">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+            {{col.header}}
+            <p-sortIcon [field]="col.field"></p-sortIcon>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+          <td *ngFor="let col of columns">
+            {{rowData[col.field]}}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <p-footer>
+    <div class="ui-dialog-buttonpane ui-helper-clearfix">
+      <button class="ui-button-success" style="background-color: #6b6b47; color: white; " pButton type="button"
+        (click)="save()" label="Lưu"></button>
+      <button class="ui-button-warning" style="background-color: #6b6b47; color: white; " pButton type="button"
+        (click)="delete()" label="Xóa"></button>
+    </div>
+  </p-footer>
+</p-dialog>

@@ -1,0 +1,59 @@
+<div class="ui-g form-group">
+  <div class="ui-g-12">
+    <span class="ui-float-label">
+      <input pInputText id="physicianName" [(ngModel)]="physician.physicianName" style="width: 90%" />
+      <label for="physicianName">Họ Và Tên:</label>
+    </span>
+  </div>
+  <div class="ui-g-12">
+    <span class="ui-float-label">
+      <input pInputText id="expertise" [(ngModel)]="physician.expertise" style="width: 90%" />
+      <label for="expertise">Chuyên Môn:</label>
+    </span>
+  </div>
+  <div class="ui-g-12">
+    <span class="ui-float-label">
+      <input pInputText id="salary" [(ngModel)]="physician.salary" style="width: 90%" />
+      <label for="salary">Lương:</label>
+    </span>
+  </div>
+  <div class="ui-g-12">
+    <div class="ui-g-2">
+      <label for="gender">Giới Tính:</label>
+    </div>
+    <div class="ui-g-10">
+      <p-dropdown [style]="{'width':'100%'}" id="gender" [options]="genders" [(ngModel)]="selectedGender" optionLabel="name" [showClear]="true" placeholder="Select your gender">
+      </p-dropdown>
+    </div>
+  </div>
+  <div class="ui-g-12">
+    <span class="ui-float-label">
+      <input pInputText id="address" [(ngModel)]="physician.address" style="width: 90%" />
+      <label for="address">Địa Chỉ:</label>
+    </span>
+  </div>
+  <div class="ui-g-12">
+    <span class="ui-float-label">
+      <input pInputText id="phone" [(ngModel)]="physician.phone" style="width: 90%" />
+      <label for="phone">Số Điện thoại:</label>
+    </span>
+  </div>
+  <div class="ui-g-12">
+    <span class="ui-float-label">
+      <input pInputText id="email" [(ngModel)]="physician.email" style="width: 90%" />
+      <label for="email">Email:</label>
+    </span>
+  </div>
+  <div class="ui-g-12">
+    <span class="ui-float-label">
+      <textarea [rows]="3" id="description" [(ngModel)]="physician.description" pInputTextarea autoResize="autoResize"
+        style="width: 100%"></textarea>
+      <label for="description">Ghi Chú:</label>
+    </span>
+  </div>
+  <div class="ui-g-12" style="text-align: right;">
+    <p-button label="Lưu" icon="ui-icon-save" (onClick)="save($event)" class="diaglog-action-button"></p-button>
+    <p-button label="Hủy" icon="ui-icon-cancel" (onClick)="cancel()" class="diaglog-action-button"></p-button>
+  </div>
+</div>
+<p-toast></p-toast>

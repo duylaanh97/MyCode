@@ -1,0 +1,48 @@
+{
+    "data":[
+        {
+            "stt":"1",
+            "hoTen":"Phạm Văn A",
+            "chuyenMon":"Nha Khoa",
+            "luong":"15.000.000",
+            "gioiTinh":"Nam",
+            "diaChi":"262 Khương Đình",
+            "soDienThoai":"0968452967",
+            "email":"Leezy.pz66@gmail.com",
+            "ghiChu":"Nothing"
+        },
+        {
+            "stt":"2",
+            "hoTen":"Nguyễn Văn B",
+            "chuyenMon":"Sản Khoa",
+            "luong":"15.000.000",
+            "gioiTinh":"Nam",
+            "diaChi":"262 Khương Đình",
+            "soDienThoai":"0968452967",
+            "email":"Leezy.pz66@gmail.com",
+            "ghiChu":"Nothing"
+        },
+        {
+            "stt":"3",
+            "hoTen":"Lê Thị C",
+            "chuyenMon":"Sản Khoa",
+            "luong":"15.000.000",
+            "gioiTinh":"Nữ",
+            "diaChi":"262 Khương Đình",
+            "soDienThoai":"0968452967",
+            "email":"Leezy.pz66@gmail.com",
+            "ghiChu":"Nothing"
+        },
+        {
+            "stt":"4",
+            "hoTen":"Trần Văn D",
+            "chuyenMon":"Nha Khoa",
+            "luong":"15.000.000",
+            "gioiTinh":"Nam",
+            "diaChi":"262 Khương Đình",
+            "soDienThoai":"0968452967",
+            "email":"Leezy.pz66@gmail.com",
+            "ghiChu":"Nothing"
+        }    
+    ]
+}

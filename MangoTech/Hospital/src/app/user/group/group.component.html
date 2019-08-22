@@ -1,3 +1,62 @@
-<p>
-  group works!
-</p>
+<div class="ui-g">
+  <div class="ui-g-12" style="text-align: center">
+    <h1>Quản lý nhóm người dùng</h1>
+  </div>
+  <div class="ui-g-12">
+    <div class="ui-g">
+      <div class="ui-g-12 ui-md-9 add-button-box">
+        <p-button label="Thêm mới" icon="ui-icon-add-circle" (onClick)="prepareAddGroup($event)"></p-button>
+      </div>
+      <div class="ui-g-12 ui-md-3">
+        <div class="ui-g form-group">
+          <div class="ui-inputgroup search-box">
+            <span class="md-inputfield">
+              <input type="text" pInputText class="search-input" [(ngModel)]="keyword" (keyup.enter)="searchGroups()">
+              <label>Nhập tên nhóm</label>
+            </span>
+            <button pButton type="button" icon="ui-icon-search" (onClick)="searchGroups()"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui-g-12">
+    <p-table [columns]="cols" [value]="groups" [responsive]="true" [resizableColumns]="true">
+      <ng-template pTemplate="caption">
+        Danh sách nhóm người dùng
+      </ng-template>
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns">
+            {{col.header}}
+          </th>
+          <th>Thời gian tạo</th>
+          <th>Trạng thái</th>
+          <th>Thao tác</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+          <td *ngFor="let col of columns">
+            {{rowData[col.field]}}
+          </td>
+          <td style="text-align: center">
+            {{rowData.created | date: 'medium'}}
+          </td>
+          <td style="text-align: center">
+            <button pButton *ngIf="rowData.status === 1" icon="ui-icon-check" (click)="changeStatus(rowData)"></button>
+            <button pButton *ngIf="rowData.status === 2" icon="ui-icon-close" (click)="changeStatus(rowData)"></button>
+          </td>
+          <td style="text-align: center">
+            <button pButton icon="ui-icon-create" (click)="selectGroup(rowData)"></button>
+            <button pButton icon="ui-icon-delete" (click)="confirmDeleted(rowData)"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <p-paginator [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[10,20,30]"
+      (onPageChange)="paginate($event)"></p-paginator>
+  </div>
+</div>
+<p-toast></p-toast>
+<p-confirmDialog header="Xác nhận thao tác" icon="pi pi-exclamation-triangle"></p-confirmDialog>

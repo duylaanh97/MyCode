@@ -1,0 +1,195 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet">
+<div class="ui-g">
+  <div class="ui-g-12"
+       style="text-align: center">
+    <h1>Quản lý khách hàng</h1>
+  </div>
+  <div class="ui-g-12">
+    <div class="ui-g">
+      <div class="ui-g-12 ui-md-9 add-button-box">
+        <p-button label="Thêm mới"
+                  icon="ui-icon-add-circle"
+                  (onClick)="prepareAddCustomer($event)"></p-button>
+      </div>
+      <div class="ui-g-12 ui-md-3">
+        <div class="ui-g form-group">
+          <div class="ui-inputgroup search-box">
+            <span class="md-inputfield">
+              <input type="text"
+                     pInputText
+                     class="search-input">
+              <label>Nhập tên khách hàng</label>
+            </span>
+            <button pButton
+                    type="button"
+                    icon="ui-icon-search"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui-g-12">
+    <p-table [columns]="cols"
+             [value]="customers"
+             [responsive]="true"
+             [pSelectableRow]="rowData">
+      <ng-template pTemplate="colgroup"
+                   let-columns>
+        <colgroup>
+          <col *ngFor="let col of columns"
+               [style.width]="col.width">
+        </colgroup>
+      </ng-template>
+      <ng-template pTemplate="caption">
+        Danh sách khách hàng
+      </ng-template>
+      <ng-template pTemplate="header"
+                   let-columns>
+        <tr>
+          <th *ngFor="let col of columns">
+            {{col.header}}
+          </th>
+          <th>Thời gian tạo</th>
+          <th>Trạng thái</th>
+          <th>Thao tác</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body"
+                   let-rowData
+                   let-columns="columns">
+        <tr>
+          <td *ngFor="let col of columns"
+              style="word-break: break-all; font-size: 100%">
+            {{ col.type ? col.type.transform(rowData[col.field], col.arg1, col.arg2, col.arg3) : rowData[col.field] }}
+          </td>
+          <td style="text-align: center">
+            {{rowData.created | date: 'medium'}}
+          </td>
+          <td style="text-align: center">
+            <button pButton
+                    *ngIf="rowData.status === 1"
+                    icon="ui-icon-check"
+                    (click)="changeStatus(rowData)"></button>
+            <button pButton
+                    *ngIf="rowData.status === 2"
+                    icon="ui-icon-close"
+                    (click)="changeStatus(rowData)"></button>
+          </td>
+          <td style="text-align: center">
+            <button pButton
+                    icon="ui-icon-print"
+                    (click)="print(rowData);"></button>
+            <button pButton
+                    icon="ui-icon-create"
+                    (click)="selectCustomer(rowData)"></button>
+            <button pButton
+                    icon="ui-icon-delete"
+                    (click)="confirmDeleted(rowData)"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <p-paginator [rows]="pageSize"
+                 [totalRecords]="totalRecords"
+                 [rowsPerPageOptions]="[10,20,30]"
+                 (onPageChange)="paginate($event)"></p-paginator>
+  </div>
+</div>
+
+<p-dialog styleClass="customDialog"
+          header="Clients Details"
+          [(visible)]="displayDialog"
+          [responsive]="true"
+          showEffect="fade"
+          [modal]="true"
+          [appendTo]="'body'"
+          [draggable]="false">
+  <div class="ui-g ui-fluid"
+       *ngIf="customer">
+    <div class="ui-g-12">
+      <div class="ui-g-3">
+        <label for="name">Name</label>
+      </div>
+      <div class="ui-g-9">
+        <input pInputText
+               id="username"
+               [(ngModel)]="customer.username" />
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="ui-g-3">
+        <label for="age">Birthday</label>
+      </div>
+      <div class="ui-g-9">
+        <input pInputText
+               id="birthDate"
+               [(ngModel)]="customer.birthDate" />
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="ui-g-3">
+        <label for="gender">Gender</label>
+      </div>
+      <div class="ui-g-9">
+        <p-dropdown [options]="genders"
+                    [(ngModel)]="customer.gender"
+                    placeholder="Select your gender"
+                    optionLabel="gender"
+                    [showClear]="true"></p-dropdown>
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="ui-g-3">
+        <label for="job">Job</label>
+      </div>
+      <div class="ui-g-9">
+        <input pInputText
+               id="job"
+               [(ngModel)]="customer.job" />
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="ui-g-3">
+        <label for="phone">Phone</label>
+      </div>
+      <div class="ui-g-9">
+        <input pInputText
+               id="phone"
+               [(ngModel)]="customer.phone" />
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="ui-g-3">
+        <label for="servicesRequest">Service</label>
+      </div>
+      <div class="ui-g-9">
+        <p-dropdown [style]="{'text-overflow': 'ellipsis'}"
+                    appendTo="body"
+                    [options]="services"
+                    [(ngModel)]="customer.servicesRequest"
+                    placeholder="Select service that you want"
+                    optionLabel="demandService"
+                    [showClear]="true"
+                    [autoWidth]="false"></p-dropdown>
+      </div>
+    </div>
+  </div>
+  <p-footer>
+    <div class="ui-dialog-buttonpane ui-helper-clearfix">
+      <button type="button"
+              pButton
+              icon="fa fa-close"
+              (click)="delete()"
+              label="Delete"></button>
+      <button type="button"
+              pButton
+              icon="fa fa-check"
+              (click)="save()"
+              label="Save"></button>
+    </div>
+  </p-footer>
+</p-dialog>
+<p-toast></p-toast>
+<p-confirmDialog header="Xác nhận thao tác"
+                 icon="pi pi-exclamation-triangle"></p-confirmDialog>

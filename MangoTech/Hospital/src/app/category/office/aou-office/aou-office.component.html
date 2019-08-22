@@ -1,0 +1,69 @@
+<div class="ui-g form-group">
+  <div class="ui-g-12">
+    <span class="ui-float-label">
+      <input pInputText id="officeName" [(ngModel)]="office.officeName" style="width: 90%" />
+      <label for="officeName">Tên cơ sở: </label>
+    </span>
+  </div>
+  <div class="ui-g-12">
+    <span class="ui-float-label">
+      <textarea [rows]="2" id="address" [(ngModel)]="office.address" pInputTextarea autoResize="autoResize"
+        style="width: 90%"></textarea>
+      <label for="address">Địa chỉ: </label>
+    </span>
+  </div>
+  <div class="ui-g-12">
+    <span class="ui-float-label">
+      <input pInputText id="phone" [(ngModel)]="office.phone" style="width: 90%" />
+      <label for="phone">Số ĐT: </label>
+    </span>
+  </div>
+  <div class="ui-g-12">
+    <span class="ui-float-label">
+      <input pInputText id="email" [(ngModel)]="office.email" style="width: 90%" />
+      <label for="email">Email: </label>
+    </span>
+  </div>
+  <div class="ui-g-12">
+    <div class="ui-g-3">
+      <label for="mangement">Quản lý: </label>
+    </div>
+    <div class="ui-g-9">
+      <p-dropdown placeholder="Select Mangement" id="mangement" [options]="mangements" [(ngModel)]="selectedMangement"
+        optionLabel="name" [showClear]="true" [style]="{'width':'30%'}">
+      </p-dropdown>
+    </div>
+  </div>
+  <div class="ui-g-12">
+    <div class="ui-g-3">
+      <a href="https://www.google.com/maps/@9.779349,105.6189045,11z?hl=vi-VN">G-Map: </a>
+    </div>
+    <div class="ui-g-9">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.746912381248!2d105.85764861489717!3d21.00277988601244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135addd85756cfb%3A0x2dd16eed7ccc9e26!2sMangotech+Vi%E1%BB%87t+Nam!5e0!3m2!1svi!2s!4v1565068865108!5m2!1svi!2s"
+        width="550" height="300" frameborder="0" style="border:0" allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+  <div class="ui-g-12">
+    <span class="ui-float-label">
+      <textarea [rows]="2" id="describe" [(ngModel)]="office.describe" pInputTextarea autoResize="autoResize"
+        style="width: 90%"></textarea>
+      <label for="describe">Mô tả: </label>
+    </span>
+  </div>
+  <div class="ui-g-12">
+    <div class="ui-g-3">
+      <label for="status">Trạng thái: </label>
+    </div>
+    <div class="ui-g-9">
+      <p-checkbox id="status" [(ngModel)]="status" binary="true" (onChange)="changeStatus()" label="{{statusLabel}}">
+      </p-checkbox>
+    </div>
+  </div>
+  <div class="ui-g-12" style="text-align: right; margin-bottom: 40px">
+    <p-button label="Lưu" icon="ui-icon-save" (onClick)="save($event)" class="diaglog-action-button"></p-button>
+    <p-button label="Hủy" icon="ui-icon-cancel" (onClick)="cancel()" class="diaglog-action-button"></p-button>
+  </div>
+</div>
+<p-toast></p-toast>

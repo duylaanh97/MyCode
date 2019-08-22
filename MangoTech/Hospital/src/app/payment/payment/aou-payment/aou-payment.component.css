@@ -1,0 +1,6 @@
+.diaglog-action-button {
+  margin: 2px;
+}
+.ui-dropdown, .ui-calendar, .ui-inputtext {
+  width: 100% !important;
+}

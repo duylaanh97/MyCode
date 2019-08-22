@@ -1,4 +1,4 @@
-<div class="layout-wrapper" [ngClass]="{'layout-compact':layoutCompact}" (click)="onLayoutClick()">
+<div class="layout-wrapper" [ngClass]="{'layout-compact':layoutCompact}" (click)="onLayoutClick()" *ngIf="authed; else authContainer">
 
     <div #layoutContainer class="layout-container"
             [ngClass]="{'menu-layout-static': !isOverlay(),
@@ -13,7 +13,7 @@
 
         <div class="layout-menu" [ngClass]="{'layout-menu-dark':darkMenu}" (click)="onMenuClick($event)">
             <p-scrollPanel #scrollPanel [style]="{height: '100%'}">
-                <app-inline-profile *ngIf="profileMode=='inline'&&!isHorizontal()"></app-inline-profile>
+                <app-inline-profile *ngIf="profileMode == 'inline' && !isHorizontal()"></app-inline-profile>
                 <app-menu [reset]="resetMenu"></app-menu>
             </p-scrollPanel>
         </div>
@@ -34,3 +34,7 @@
     </div>
 
 </div>
+
+<ng-template #authContainer>
+  <app-login></app-login>
+</ng-template>

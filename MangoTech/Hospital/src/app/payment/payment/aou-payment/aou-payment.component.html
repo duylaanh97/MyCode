@@ -1,0 +1,126 @@
+<div class="ui-g form-group">
+  <div class="ui-g-12">
+    <div class="ui-g-12 ui-md-6">
+      <span class="ui-float-label">
+        <input pInputText id="username" [(ngModel)]="user.username" style="width: 60%" />
+        <label for="username">Họ Tên</label>
+      </span>
+    </div>
+    <div class="ui-g-12 ui-md-6">
+      <span class="ui-float-label">
+        <input pInputText id="phone" [(ngModel)]="user.phone" style="width: 60%" />
+        <label for="username">Số điện thoại</label>
+      </span>
+    </div>
+  </div>
+  <div class="ui-g-12">
+    <span class="ui-float-label">
+      <textarea [rows]="3" id="detail" [(ngModel)]="payment.detail" pInputTextarea autoResize="autoResize"
+        style="width: 100%">
+      </textarea>
+      <label for="detail">Chi tiết khám chữa</label>
+    </span>
+  </div>
+
+  <div class="ui-g-12">
+    <div class="ui-g-2">
+      <label for="">Dịch vụ đã sử dụng: </label>
+    </div>
+    <div class="ui-g-10">
+      <div class="ui-g-10 ui-md-8 add-button-box">
+        <p-button label="Thêm dịch vụ" icon="ui-icon-add-circle" (onclick)="prepareAddServices($event)"></p-button>
+      </div>
+      <div class="ui-g-10">
+        <p-table [responsive]="true">
+          <ng-template let-columns>
+            <tr>
+              <th>Dịch vụ</th>
+              <th>Dơn giá (VNĐ)</th>
+              <th>Số lượng</th>
+              <th>Thành Tiền (VNĐ)</th>
+              <th>Bác sĩ chính</th>
+              <th>Bác sĩ phụ</th>
+            </tr>
+          </ng-template>
+          <ng-template>
+            <tr>
+              <td>fsdfsfd</td>
+              <td></td>
+              <td>fsdfsfd</td>
+              <td></td>
+              <td>fsdfsfd</td>
+              <td>fsdfsfd</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui-g-12 ui-md-6">
+    <div class="ui-g-4">
+      <label for="expected">Tổng chi phí dự kiến:</label>
+    </div>
+    <div class="ui-g-8">
+      {{payment.expected}}
+    </div>
+  </div>
+  <div class="ui-g-12">
+    <div class="ui-g-12 ui-md-4">
+      <span class="ui-float-label">
+        <input pInputText id="sale" [(ngModel)]="payment.sale" style="width: 90%"> VNĐ
+        <label for="sale">Giảm giá tiền</label>
+      </span>
+    </div>
+    <div class="ui-g-12 ui-md-4">
+      <span class="ui-float-label">
+        <input pInputText id="percent" [(ngModel)]="payment.percent" style="width: 90%">
+        <label for="percent">Giảm %</label>
+      </span>
+    </div>
+    <div class="ui-g-12 ui-md-4">
+      <span class="ui-float-label">
+        <textarea [rows]="3" id="reason" [(ngModel)]="payment.reason" pInputTextarea autoResize="autoResize"
+          style="width: 100%"></textarea>
+        <label for="reason">Lý do giảm giá</label>
+      </span>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-md-6">
+    <div class="ui-g-4">
+      <label for="price">Tổng chi phí:</label>
+    </div>
+    <div class="ui-g-8">
+      {{payment.price}}
+    </div>
+  </div>
+  <div class="ui-g-12">
+    <div class="ui-g-12 ui-md-6">
+      <span class="ui-float-label">
+        <input pInputText id="paid" [(ngModel)]="payment.paid" style="width: 90%" /> VNĐ
+        <label for="paid">Thanh Toán</label>
+      </span>
+    </div>
+    <div class="ui-g-12 ui-md-6">
+      <div class="ui-g-4">
+        <label for="unpaid">Phí còn nợ:</label>
+      </div>
+      <div class="ui-g-8">
+        {{payment.price}} - {{payment.paid}}
+      </div>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-md-6">
+    <div class="ui-g-4">
+      <label for="paid">Phí đã thanh toán:</label>
+    </div>
+    <div class="ui-g-8">
+      {{payment.paid}}
+    </div>
+  </div>
+  <div class="ui-g-12" style="text-align: right;">
+    <p-button label="Lưu" icon="ui-icon-save" (onClick)="save($event)" class="diaglog-action-button"></p-button>
+    <p-button label="Hủy" icon="ui-icon-cancel" (onClick)="cancel()" class="diaglog-action-button"></p-button>
+  </div>
+</div>
+<p-toast></p-toast>

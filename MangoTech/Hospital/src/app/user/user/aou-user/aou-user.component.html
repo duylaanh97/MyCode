@@ -1,0 +1,86 @@
+<div class="ui-g form-group">
+  <div class="ui-g-12 ui-md-6">
+    <span class="ui-float-label">
+      <input pInputText id="username" [(ngModel)]="user.username" style="width: 90%" />
+      <label for="username">Tài khoản</label>
+    </span>
+  </div>
+  <div class="ui-g-12 ui-md-6">
+    <div class="ui-g-4">
+      <label for="group">Nhóm người dùng:</label>
+    </div>
+    <div class="ui-g-8">
+      <p-dropdown id="group" [options]="groups" [(ngModel)]="selectedGroup" placeholder="Chọn nhóm người dùng" optionLabel="groupName"
+        [showClear]="true"></p-dropdown>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-md-6" *ngIf="mode===0">
+    <span class="ui-float-label">
+      <input pPassword id="password" [(ngModel)]="user.password" style="width: 90%" type="password"/>
+      <label for="password">Mật khẩu</label>
+    </span>
+  </div>
+  <div class="ui-g-12 ui-md-6" *ngIf="mode===0">
+    <span class="ui-float-label">
+      <input pPassword id="confirmPassword" [(ngModel)]="confirmPassword" style="width: 90%" type="password"/>
+      <label for="confirmPassword">Xác nhận mật khẩu</label>
+    </span>
+  </div>
+  <div class="ui-g-12 ui-md-6">
+    <span class="ui-float-label">
+      <input pInputText id="surname" [(ngModel)]="user.surname" style="width: 90%" />
+      <label for="surname">Họ và tên đệm</label>
+    </span>
+  </div>
+  <div class="ui-g-12 ui-md-6">
+    <span class="ui-float-label">
+      <input pInputText id="lastName" [(ngModel)]="user.lastName" style="width: 90%" />
+      <label for="lastName">Tên</label>
+    </span>
+  </div>
+  <div class="ui-g-12 ui-md-6">
+    <span class="ui-float-label">
+      <input pInputText id="phone" [(ngModel)]="user.phone" style="width: 90%" />
+      <label for="phone">Số điện thoại</label>
+    </span>
+  </div>
+  <div class="ui-g-12 ui-md-6">
+    <span class="ui-float-label">
+      <input pInputText id="email" [(ngModel)]="user.email" style="width: 90%" />
+      <label for="email">Email</label>
+    </span>
+  </div>
+  <div class="ui-g-12 ui-md-6">
+    <div class="ui-g-3">
+      <label for="gender">Giới tính:</label>
+    </div>
+    <div class="ui-g-9">
+      <p-dropdown id="gender" [options]="genders" [(ngModel)]="selectedGender" optionLabel="name" [showClear]="true">
+      </p-dropdown>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-md-6">
+    <div class="ui-g-3">
+      <label for="birthDate">Ngày sinh:</label>
+    </div>
+    <div class="ui-g-9">
+      <p-calendar id="birthDate" [(ngModel)]="birthDate" [monthNavigator]="true" [yearNavigator]="true"
+        yearRange="1950:2020">
+      </p-calendar>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-md-6">
+    <div class="ui-g-3">
+      <label for="status">Trạng thái:</label>
+    </div>
+    <div class="ui-g-9">
+      <p-checkbox id="status" [(ngModel)]="status" binary="true" (onChange)="changeStatus()" label="{{statusLabel}}">
+      </p-checkbox>
+    </div>
+  </div>
+  <div class="ui-g-12" style="text-align: right; margin-top: 10em;">
+    <p-button label="Lưu" icon="ui-icon-save" (onClick)="save($event)" class="diaglog-action-button"></p-button>
+    <p-button label="Hủy" icon="ui-icon-cancel" (onClick)="cancel()" class="diaglog-action-button"></p-button>
+  </div>
+</div>
+<p-toast></p-toast>

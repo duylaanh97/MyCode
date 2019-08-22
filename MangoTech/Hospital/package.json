@@ -6,10 +6,11 @@
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
-        "build": "ng build",
+        "build": "ng build --prod",
         "test": "ng test",
         "lint": "ng lint",
-        "e2e": "ng e2e"
+        "e2e": "ng e2e",
+        "start-trung": "ng serve --proxy-config proxy.config.json"
     },
     "private": true,
     "dependencies": {
@@ -23,24 +24,27 @@
         "@angular/platform-browser": "7.1.2",
         "@angular/platform-browser-dynamic": "7.1.2",
         "@angular/router": "7.1.2",
+        "angular-in-memory-web-api": "^0.8.0",
         "chart.js": "2.7.3",
         "core-js": "2.5.7",
         "fullcalendar": "4.0.0-alpha.2",
         "intl": "1.2.5",
+        "jspdf": "^1.5.3",
         "primeng": "7.0.0",
         "quill": "1.1.8",
         "rxjs": "6.3.3",
-        "zone.js": "0.8.26",
-        "web-animations-js": "2.3.1"
+        "store": "^2.0.12",
+        "web-animations-js": "2.3.1",
+        "zone.js": "0.8.26"
     },
     "devDependencies": {
-        "@angular-devkit/build-angular": "0.11.2",
-        "@angular/compiler-cli": "7.1.2",
+        "@angular-devkit/build-angular": "^0.11.2",
         "@angular/cli": "7.1.2",
+        "@angular/compiler-cli": "7.1.2",
         "@angular/language-service": "7.1.2",
-        "@types/node": "8.9.5",
         "@types/jasmine": "2.8.12",
         "@types/jasminewd2": "2.0.6",
+        "@types/node": "8.9.5",
         "codelyzer": "4.5.0",
         "jasmine-core": "2.99.1",
         "jasmine-spec-reporter": "4.2.1",

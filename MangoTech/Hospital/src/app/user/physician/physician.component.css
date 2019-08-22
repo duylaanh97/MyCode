@@ -1,0 +1,49 @@
+.title{
+    text-align: center;
+    font-size: 30px;
+    padding: 20px 0px;
+    font-weight: 500;
+}
+
+.thaoTac{
+    padding: 20px 10px;
+    padding-top: 5px;
+    padding-right: 6px;
+}
+
+.xuatExcel{
+    float: right !important;
+
+}
+
+.cot{
+    width: 50px;
+}
+
+button{
+    background: #ccc;
+    border-color: none !important;
+    padding: 4px 10px;
+    border: 1px solid #191515;
+    cursor: pointer;
+    margin-right: 1px;
+    border: none;
+}
+
+.them{
+    display: inline-block;
+    padding-bottom: 5px;
+}
+.xuatExcel{
+    display: inline-block;
+}
+.thaotac{
+    width: 10%;
+}
+.search-input, .search-box {
+  width: 100%;
+}
+.add-button-box {
+  padding-top: 2.5em;
+}
+

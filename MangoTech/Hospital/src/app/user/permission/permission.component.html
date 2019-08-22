@@ -1,3 +1,64 @@
-<p>
-  permission works!
-</p>
+<div class="ui-g">
+  <div class="ui-g-12" style="text-align: center">
+    <h1>Quản lý nhóm người dùng</h1>
+  </div>
+  <div class="ui-g-12">
+    <div class="card card-w-title">
+      <p-header>
+        <div class="ui-helper-clearfix">
+          <button pButton type="button" icon="ui-icon-save" label="Cập nhật" (click)="doPermission()"
+            class="diaglog-action-button"></button>
+          <button pButton type="button" icon="ui-icon-arrow-autorenew" label="Làm mới" (click)="goBack()"
+            class="diaglog-action-button"></button>
+        </div>
+      </p-header>
+      <div class="ui-g-12" style="margin-top: 10px;">
+        <div class="ui-g-6">
+          <p-dropdown [options]="groups" [(ngModel)]="group" placeholder="Chọn nhóm người dùng" optionLabel="groupName"
+            filter="true" [style]="{'width':'100%'}" (onChange)="changeGroup()"></p-dropdown>
+        </div>
+
+      </div>
+      <div class="ui-g-12">
+        <ng-container *ngFor="let roleModule of roleModules">
+          <p-panel>
+            <p-header>
+              <div class="ui-helper-clearfix">
+                <span class="ui-panel-title"
+                  style="font-size:16px;display:inline-block;margin-top:2px">{{roleModule.moduleName}}</span>
+              </div>
+            </p-header>
+            <div class="ui-g-12">
+              <div class="ui-g-3">
+                <p-checkbox name="roleModules" value="{{roleModule.roleModule}}" [(ngModel)]="selectedModules" label="Chọn tất cả" class="check-all" (onChange)="changeCheckAll(roleModule.roleModule)"></p-checkbox>
+              </div>
+            </div>
+            <ng-container *ngFor="let roleFunction of roleFunctions">
+              <p-fieldset legend="{{roleFunction.functionName}}"
+                *ngIf="roleFunction.roleModule === roleModule.roleModule">
+                <div class="ui-g-12">
+                  <ng-container *ngFor="let role of roles">
+                    <div class="ui-g-3" *ngIf="role.roleFunction === roleFunction.roleFunction">
+                      <p-checkbox name="roles" value="{{role.id}}" [(ngModel)]="selectedRoles"
+                        label="{{role.roleName}}" (onChange)="changeCheck(role)">
+                      </p-checkbox>
+                    </div>
+                  </ng-container>
+                </div>
+              </p-fieldset>
+            </ng-container>
+          </p-panel>
+        </ng-container>
+      </div>
+      <p-footer>
+        <div class="ui-helper-clearfix">
+          <button pButton type="button" icon="ui-icon-save" label="Cập nhật" (click)="doPermission()"
+            class="diaglog-action-button"></button>
+          <button pButton type="button" icon="ui-icon-arrow-autorenew" label="Làm mới" (click)="goBack()"
+            class="diaglog-action-button"></button>
+        </div>
+      </p-footer>
+    </div>
+  </div>
+</div>
+<p-toast></p-toast>

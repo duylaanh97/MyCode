@@ -1,0 +1,60 @@
+{
+    "data":[
+        {
+            "stt":"1",
+            "hoTen":"Phạm Văn A",
+            "soDienThoai":"0968452967",
+            "chiTiet":"Nhổ 1 chiếc răng",
+            "dichVu":"Nhổ răng",
+            "bacSiChinh":"Phạm Đăng Khoa",
+            "bacSiPhu":"Nguyễn Thị Thủy",
+            "phiDichVu":"500.000",
+            "phiDaThanhToan":"400.000",
+            "phiChuaThanhToan":"100.000",
+            "hinhThucThanhToan":"Tiền mặt",
+            "ngayKham":"06/06/2019"
+        },
+        {
+            "stt":"2",
+            "hoTen":"Nguyễn Văn B",
+            "soDienThoai":"0968452967",
+            "chiTiet":"Nhổ 1 chiếc răng",
+            "dichVu":"Nhổ răng",
+            "bacSiChinh":"Phạm Đăng Khoa",
+            "bacSiPhu":"Nguyễn Thị Thủy",
+            "phiDichVu":"500.000",
+            "phiDaThanhToan":"400.000",
+            "phiChuaThanhToan":"100.000",
+            "hinhThucThanhToan":"Tiền mặt",
+            "ngayKham":"07/06/2019"
+        },
+        {
+            "stt":"3",
+            "hoTen":"Trần Phương C",
+            "soDienThoai":"0968452967",
+            "chiTiet":"Nhổ 1 chiếc răng",
+            "dichVu":"Nhổ răng",
+            "bacSiChinh":"Phạm Đăng Khoa",
+            "bacSiPhu":"Nguyễn Thị Thủy",
+            "phiDichVu":"500.000",
+            "phiDaThanhToan":"400.000",
+            "phiChuaThanhToan":"100.000",
+            "hinhThucThanhToan":"Tiền mặt",
+            "ngayKham":"08/06/2019"
+        },
+        {
+            "stt":"4",
+            "hoTen":"Lê Đức D",
+            "soDienThoai":"0968452967",
+            "chiTiet":"Nhổ 1 chiếc răng",
+            "dichVu":"Nhổ răng",
+            "bacSiChinh":"Phạm Đăng Khoa",
+            "bacSiPhu":"Nguyễn Thị Thủy",
+            "phiDichVu":"500.000",
+            "phiDaThanhToan":"400.000",
+            "phiChuaThanhToan":"100.000",
+            "hinhThucThanhToan":"Tiền mặt",
+            "ngayKham":"09/06/2019"
+        } 
+    ]
+}

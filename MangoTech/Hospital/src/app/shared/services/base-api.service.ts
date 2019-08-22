@@ -29,17 +29,7 @@ export class BaseApiService {
     ).pipe(catchError(this.formatErrors));
   }
 
-  post(path: string, body: Object = {}, login: boolean = false): Observable<any> {
-    if (login) {
-      return this.http.post(
-        `${environment.apiUrl}${path}`,
-        body,
-        {
-          observe: 'response',
-        }
-      ).pipe(catchError(this.formatErrors));
-    }
-
+  post(path: string, body: Object = {}): Observable<any> {
     return this.http.post(
       `${environment.apiUrl}${path}`,
       JSON.stringify(body),

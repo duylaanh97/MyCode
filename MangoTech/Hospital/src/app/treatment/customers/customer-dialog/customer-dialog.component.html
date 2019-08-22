@@ -1,0 +1,75 @@
+<div class="ui-g">
+  <div class="ui-g-12">
+    <div class="ui-g-12">
+      <div class="ui-g-3">
+        <label for="username">Tên</label>
+      </div>
+      <div class="ui-g-9">
+        <input pInputText id="username" [(ngModel)]="customer.username" style="width: 100%" />
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="ui-g-3">
+        <label for="birthDate">Ngày sinh</label>
+      </div>
+      <div class="ui-g-9">
+        <input pInputText id="birthDate" [(ngModel)]="customer.birthDate" style="width: 100%" />
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="ui-g-3">
+        <label for="gender">Giới tính</label>
+      </div>
+      <div class="ui-g-9">
+        <p-dropdown [options]="genders" [(ngModel)]="customer.gender" placeholder="Select your gender"
+          [showClear]="true" [style]="{'width': '100%'}"></p-dropdown>
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="ui-g-3">
+        <label for="job">Nghề nghiệp</label>
+      </div>
+      <div class="ui-g-9">
+        <input pInputText id="job" [(ngModel)]="customer.job" style="width: 100%" />
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="ui-g-3">
+        <label for="phone">Điện thoại</label>
+      </div>
+      <div class="ui-g-9">
+        <input pInputText id="phone" [(ngModel)]="customer.phone" style="width: 100%" />
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="ui-g-3">
+        <label for="servicesRequest">Dịch vụ</label>
+      </div>
+      <div class="ui-g-9">
+        <p-dropdown styleClass="custom-dropdown" appendTo="body" [options]="services"
+          [(ngModel)]="customer.servicesRequest" placeholder="Select service that you want" [showClear]="true"
+          [autoWidth]="false"></p-dropdown>
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="ui-g-3">
+        <label for="bookingDate">Ngày hẹn</label>
+      </div>
+      <div class="ui-g-9">
+        <input pInputText id="bookingDate" [(ngModel)]="customer.bookingDate" style="width: 100%" />
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="ui-g-3">
+        <label for="incomingDate">Ngày tới</label>
+      </div>
+      <div class="ui-g-9">
+        <input pInputText id="incomingDate" [(ngModel)]="customer.incomingDate" style="width: 100%" />
+      </div>
+    </div>
+  </div>
+  <div class="ui-g-12" style="text-align: right;">
+    <p-button label="Lưu" icon="ui-icon-save" (onClick)="save($event)" class="diaglog-action-button"></p-button>
+    <p-button label="Hủy" icon="ui-icon-cancel" (onClick)="cancel()" class="diaglog-action-button"></p-button>
+  </div>
+</div>

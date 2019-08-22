@@ -1,0 +1,26 @@
+<div class="ui-g">
+  <div class="ui-g-12">
+    <div class="ui-g-4">
+      <label for="groupName">Nhóm người dùng:</label>
+    </div>
+    <div class="ui-g-8">
+      <input pInputText id="groupName" [(ngModel)]="group.groupName" style="width: 100%" />
+    </div>
+    <div class="ui-g-4">
+      <label for="description">Mô tả:</label>
+    </div>
+    <div class="ui-g-8">
+      <textarea [rows]="3" id="description" [(ngModel)]="group.description" pInputTextarea autoResize="autoResize" style="width: 100%"></textarea>
+    </div>
+    <div class="ui-g-4">
+      <label for="groupName">Trạng thái:</label>
+    </div>
+    <div class="ui-g-8">
+      <p-checkbox [(ngModel)]="status" binary="true" (onChange)="changeStatus()" label="{{statusLabel}}"></p-checkbox>
+    </div>
+  </div>
+  <div class="ui-g-12" style="text-align: right;">
+    <p-button label="Lưu" icon="ui-icon-save" (onClick)="save($event)" class="diaglog-action-button"></p-button>
+    <p-button label="Hủy" icon="ui-icon-cancel" (onClick)="cancel()" class="diaglog-action-button"></p-button>
+  </div>
+</div>

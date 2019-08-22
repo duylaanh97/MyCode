@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8890/api/v1/guide/'
+  // apiUrl: 'http://192.168.68.252:9080/'
+  apiUrl: 'http://localhost:9080/'
 };

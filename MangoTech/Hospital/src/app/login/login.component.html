@@ -1,0 +1,32 @@
+<div class="card login-panel ui-fluid">
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <img src="../../assets/layout/images/logo-ultima.svg">
+    </div>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmitLogin()">
+      <div class="ui-g-12">
+        <span class="md-inputfield">
+          <input type="text" id="username" name="username" autocomplete="off" class="ui-inputtext ui-corner-all ui-state-default ui-widget"
+            [(ngModel)]="loginObject.username" #username="ngModel" required>
+          <label>Username</label>
+        </span>
+        <p-message [hidden]="username.valid || username.pristine" severity="error" text="Field is required"></p-message>
+      </div>
+      <div class="ui-g-12">
+        <span class="md-inputfield">
+          <input type="password" id="password"  name="password" autocomplete="off" class="ui-inputtext ui-corner-all ui-state-default ui-widget"
+            [(ngModel)]="loginObject.password" #password="ngModel" required>
+          <label>Password</label>
+        </span>
+        <p-message [hidden]="password.valid || password.pristine" severity="error" text="Field is required"></p-message>
+      </div>
+      <div class="ui-g-12">
+        <button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" [disabled]="!loginForm.form.valid">
+          <span class="ui-button-icon-left ui-c fa fa-fw ui-icon-person"></span>
+          <span class="ui-button-text ui-c">Sign In</span>
+        </button>
+      </div>
+    </form>
+  </div>
+
+</div>

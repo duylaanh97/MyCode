@@ -1,0 +1,62 @@
+<div class="ui-g">
+  <div class="ui-g-12" style="text-align: center">
+    <h1>Quản lý Bác Sĩ</h1>
+  </div>
+  <div class="ui-g-12">
+    <div class="ui-g">
+      <div class="ui-g-12 ui-md-9 add-button-box">
+        <p-button label="Thêm mới" icon="ui-icon-add-circle" (onClick)="prepareAddPhysician($event)"></p-button>
+      </div>
+      <div class="ui-g-12 ui-md-3">
+        <div class="ui-g form-group">
+          <div class="ui-inputgroup search-box">
+            <span class="md-inputfield">
+              <input type="text" pInputText class="search-input">
+              <label>Nhập tên bác sĩ</label>
+            </span>
+            <button pButton type="button" icon="ui-icon-search"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui-g-12">
+    <p-table #dt [columns]="cols" [value]="physicians" [responsive]="true">
+      <ng-template pTemplate="caption">
+        Danh sách Bác sĩ
+      </ng-template>
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns">
+            {{col.header}}
+          </th>
+          <th>Trạng Thái</th>
+          <th class="thaotac">Thao tác</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+          <td *ngFor="let col of columns">
+            {{rowData[col.field]}}
+          </td>
+          <!-- <td>
+            <button class="ui-button-warning" style="background-color: #6b6b47; color: white; " pButton type="button"
+              label="Sửa" (click)="sua()"></button>
+            <button class="ui-button-danger" style="background-color: #6b6b47; color: white;" pButton type="button"
+              label="Xóa" (click)="xoa()"></button>
+          </td> -->
+          <td style="text-align: center">
+            <button pButton *ngIf="rowData.status === 1" icon="ui-icon-check"></button>
+            <button pButton *ngIf="rowData.status === 2" icon="ui-icon-close"></button>
+          </td>
+          <td style="text-align: center">
+            <button pButton icon="ui-icon-create" (click)="selectPhysician(rowData)"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <p-paginator [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[10,20,30]"
+      (onPageChange)="paginate($event)"></p-paginator>
+  </div>
+</div>
+<p-toast></p-toast>
